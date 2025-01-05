@@ -1,0 +1,19 @@
+# Need specify workflow name
+name: first-workflow
+
+# specify how it can be triggered
+on: workflow_dispatch
+
+# jobs specify what needs to be done
+jobs:
+  # need to specify particular job name
+  first-job:
+    # specify what env you can use for this
+    runs-on: ubuntu-latest
+    # array of steps which needs to be done
+    steps:
+      - name: Pring Greeting
+        run: echo "Hello World"
+      - name: Print Done
+        run: echo "Done."
+      
