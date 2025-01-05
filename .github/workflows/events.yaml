@@ -16,8 +16,8 @@ on:
     branches:
       - main # main
       - dev # dev
-      - feature/* # feature/some-name
-      - bug/** # bug/some-name/some-value
+#       - feature/* # feature/some-name
+#       - bug/** # bug/some-name/some-value
     paths-ignore:
       - '.github/workflows/*'
 jobs:
