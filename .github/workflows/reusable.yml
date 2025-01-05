@@ -1,5 +1,5 @@
 name: Reusable Deploy
-on: 
+on:
   workflow_call:
     inputs:
       artifact-name:
@@ -10,6 +10,7 @@ on:
     outputs:
       result:
         description: The result of the deployment operation
+        # 3. Set the result output of the workflow as the result output of the deploy job
         value: ${{ jobs.deploy.outputs.outcome }}
     # secrets:
       # some-secret:
@@ -17,6 +18,7 @@ on:
 jobs:
   deploy:
     outputs:
+      # 2. Get the result output from 1 and set it as the outcome output of job
       outcome: ${{ steps.set-result.outputs.step-result }}
     runs-on: ubuntu-latest
     steps:
@@ -28,6 +30,7 @@ jobs:
         run: ls
       - name: Output information
         run: echo "Deploying & uploading..."
-      - name: Set result output
+      # 1. Set the result output
+      - name: Set result outputstep-result=success
         id: set-result
         run: echo "step-result=success" >> $GITHUB_OUTPUT
