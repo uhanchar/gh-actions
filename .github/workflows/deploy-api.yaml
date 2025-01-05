@@ -10,6 +10,8 @@ env:
   MONGODB_DB_NAME: gh_demo
 jobs:
   test:
+#    Under this environment you can define common envs for all steps
+#     environment: testing
     env:
       MONGODB_CLUSTER_ADDRESS: env_cluster_address
       MONGODB_USERNAME: env_username
@@ -30,7 +32,8 @@ jobs:
 #         run: npm start & npx wait-on http://127.0.0.1:$PORT
 #       - name: Run tests
 #         run: npm test
-#     Just for testing purposes output dummy values
+#     Just for testing purposes output dummy values. env - envs from file,
+#     secrets - secrets from repo, vars - variables from repo
       - name: Output information
         run: |
           echo "MONGODB_USERNAME ${{ env.MONGODB_USERNAME }}"
