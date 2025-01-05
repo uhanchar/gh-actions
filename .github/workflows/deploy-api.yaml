@@ -2,28 +2,45 @@ name: Deployment
 on:
   push:
     branches:
-      - main
-      - dev
+#       - main
+#       - dev
+      - feature/*
+# you can add common envs here. You can define them too on job and step levels
+env:
+  MONGODB_DB_NAME: gh_demo
 jobs:
   test:
+    env:
+      MONGODB_CLUSTER_ADDRESS: env_cluster_address
+      MONGODB_USERNAME: env_username
+      MONGODB_PASSWORD: env_password
     environment: testing
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
         uses: actions/checkout@v3
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: npm-deps-${{ hashFiles('**/package-lock.json') }}
-      - name: Install dependencies
-        run: npm ci
-      - name: Run server
-        run: npm start & npx wait-on http://127.0.0.1:XYZ
-      - name: Run tests
-        run: npm test
+#       - name: Cache dependencies
+#         uses: actions/cache@v3
+#         with:
+#           path: ~/.npm
+#           key: npm-deps-${{ hashFiles('**/package-lock.json') }}
+#       - name: Install dependencies
+#         run: npm ci
+#       - name: Run server
+#         run: npm start & npx wait-on http://127.0.0.1:$PORT
+#       - name: Run tests
+#         run: npm test
+#     Just for testing purposes output dummy values
       - name: Output information
-        run: echo "..."
+        run: |
+          echo "MONGODB_USERNAME ${{ env.MONGODB_USERNAME }}"
+          echo "MONGODB_PASSWORD ${{ env.MONGODB_PASSWORD }}"
+          echo "MONGODB_CLUSTER_ADDRESS ${{ env.MONGODB_CLUSTER_ADDRESS }}"
+          echo "REPO_ENV_PARAM ${{ env.REPO_ENV_PARAM }}"
+          echo "MONGODB_USERNAME ${{ secrets.MONGODB_USERNAME }}"
+          echo "MONGODB_PASSWORD ${{ secrets.MONGODB_PASSWORD }}"
+          echo "MONGODB_CLUSTER_ADDRESS ${{ secrets.MONGODB_CLUSTER_ADDRESS }}"
+
   deploy:
     needs: test
     runs-on: ubuntu-latest
