@@ -36,6 +36,7 @@ jobs:
           echo "MONGODB_USERNAME ${{ env.MONGODB_USERNAME }}"
           echo "MONGODB_PASSWORD ${{ env.MONGODB_PASSWORD }}"
           echo "MONGODB_CLUSTER_ADDRESS ${{ env.MONGODB_CLUSTER_ADDRESS }}"
+          echo "REPO_ENV_PARAM ${{ secrets.REPO_ENV_PARAM }}"
           echo "REPO_ENV_PARAM ${{ env.REPO_ENV_PARAM }}"
           echo "MONGODB_USERNAME ${{ secrets.MONGODB_USERNAME }}"
           echo "MONGODB_PASSWORD ${{ secrets.MONGODB_PASSWORD }}"
