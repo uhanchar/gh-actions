@@ -7,6 +7,12 @@ on:
       - reopened
       - edited
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - dev
+      - feature/*
+      - bug/**
 jobs:
   deploy:
     runs-on: ubuntu-latest
