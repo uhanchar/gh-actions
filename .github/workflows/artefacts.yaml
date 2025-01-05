@@ -1,16 +1,16 @@
 name: Deploy website
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - dev
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - edited
+on: [workflow_dispatch]
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - dev
+#     types:
+#       - opened
+#       - synchronize
+#       - reopened
+#       - edited
 jobs:
   test:
     runs-on: ubuntu-latest
