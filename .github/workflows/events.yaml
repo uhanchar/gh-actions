@@ -9,10 +9,10 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
-      - dev
-      - feature/*
-      - bug/**
+      - main # main
+      - dev # dev
+      - feature/* # feature/some-name
+      - bug/** # bug/some-name/some-value
 jobs:
   deploy:
     runs-on: ubuntu-latest
