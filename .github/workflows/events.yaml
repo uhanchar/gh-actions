@@ -1,12 +1,25 @@
 name: Events Demo 1
-on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - edited
-  workflow_dispatch:
+on: [workflow_dispatch]
+#   pull_request:
+#     types:
+#       - opened
+#       - synchronize
+#       - reopened
+#       - edited
+#     branches:
+#       - main # main
+#       - dev # dev
+#       - feature/* # feature/some-name
+#       - bug/** # bug/some-name/some-value
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - main # main
+#       - dev # dev
+# #       - feature/* # feature/some-name
+# #       - bug/** # bug/some-name/some-value
+#     paths-ignore:
+#       - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
