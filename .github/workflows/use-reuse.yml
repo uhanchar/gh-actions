@@ -1,9 +1,9 @@
 name: Using Reusable Workflow
-on:
-  push:
-    branches:
-      - main
-      - feature/*
+on: [workflow_dispatch]
+#   push:
+#     branches:
+#       - main
+#       - feature/*
 jobs:
   lint:
     runs-on: ubuntu-latest
