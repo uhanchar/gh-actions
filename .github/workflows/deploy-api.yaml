@@ -1,10 +1,10 @@
 name: Deployment
-on:
-  push:
-    branches:
+on: [workflow_dispatch]
+#   push:
+#     branches:
 #       - main
 #       - dev
-      - feature/*
+#       - feature/*
 # you can add common envs here. You can define them too on job and step levels
 env:
   MONGODB_DB_NAME: gh_demo
