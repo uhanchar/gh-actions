@@ -10,6 +10,9 @@ jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
+     # To use containers, you need to specify the container key
+    container:
+      image: node:20
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb+srv
       MONGODB_CLUSTER_ADDRESS: cluster0.ntrwp.mongodb.net
