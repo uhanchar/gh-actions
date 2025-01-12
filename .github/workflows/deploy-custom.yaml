@@ -65,6 +65,11 @@ jobs:
           path: ./dist
       - name: Output contents
         run: ls
+      - name: Get AWS permissions
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/gha-deploy-role
+          aws-region: us-east-1
       - name: Deploy site
         id: deploy
         uses: ./.github/actions/deploy-s3-docker
